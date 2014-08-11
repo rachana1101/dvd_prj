@@ -28,6 +28,7 @@ import com.tripadvisor.capstone.business.entity.DVD;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
 public class DVDDaoImpIntegrationTest {
+    
     @Autowired
     DVDDaoImpl dao;
     

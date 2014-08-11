@@ -3,14 +3,14 @@ package com.tripadvisor.capstone.business.entity;
 import java.io.Serializable;
 import java.util.UUID;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.joda.time.DateTime;
 
 /**
  * Assumption : Each DVD only contains 1 movie.
- * 
- * TODO : add equals, hashcode and toString
  * 
  * @author rachana
  * @since  Aug, 8 2014
@@ -133,7 +133,7 @@ public class DVD implements Serializable {
         return this;
     }
     /**
-     * String representation of the DVD content
+     * String representation of the borrow content
      * 
      * @see java.lang.Object#toString()
      */
@@ -141,5 +141,39 @@ public class DVD implements Serializable {
     public String toString() {
         return ToStringBuilder.reflectionToString(this,
                 ToStringStyle.SHORT_PREFIX_STYLE);
+    }
+   
+    /**
+     * HashCode
+     * 
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder(31, 11).append(id).append(movieId)
+                .append(price).append(userId).append(title).append(addedOn).append(status).hashCode();
+    }
+
+    /**
+     * Equals method
+     * 
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (!super.equals(obj))
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        DVD dvd = (DVD) obj;
+        return new EqualsBuilder().append(id, dvd.id)
+                .append(movieId, dvd.movieId).append(userId, dvd.userId)
+                .append(price, dvd.price)
+                .append(title, dvd.title)
+                .append(addedOn, dvd.addedOn)
+                .append(status, dvd.status)
+                .isEquals();
     }
 }
