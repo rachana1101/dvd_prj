@@ -38,8 +38,8 @@ row.
 What is the biggest issue of the design? Where are we mostly likely to find bugs? What kind of bugs?
 - slow because of row locking - need to fix it
 - bug can be at the search dvds - need to optimize the where criteria.
-- More clean up 
 - More Unit and Integration test cases  
+- No versioning at this point of time 
 
  
 Publish the project to a Github repo - published at https://github.com/rachana1101/dvd
@@ -71,6 +71,8 @@ External : Objects meant only to expose outside
 ===============================================================================================================================
 Database - Also save in /main/resources/sql/create_db.sql
 ===============================================================================================================================
+Please note that Table are having only minimum attributes required. There can be other attributes like actors, directors etc. 
+
 -- create database test 
 create database test;
 
