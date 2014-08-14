@@ -68,6 +68,9 @@ Business : Contains the service layer, which takes the information from the Api 
 		Entity : Classes meant to interact with the object.
 External : Objects meant only to expose outside
 
+Note : No caching is been added since it was out of scope of this project but hits to the DB can be reduced by adding caching at the 
+appropriate layers.
+
 ===============================================================================================================================
 Database - Also save in /main/resources/sql/create_db.sql
 ===============================================================================================================================
